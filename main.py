@@ -1,6 +1,7 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.animation import Animation
 import json, glob
 from datetime import datetime
 from pathlib import Path
@@ -20,10 +21,9 @@ class LoginScreen(Screen):
         else:
             self.ids.login_wrong.text = "Wrong username or password"
 
-
-
 class RootWidget(ScreenManager):
     pass
+
 
 class SignUpScreen(Screen):
     def add_user(self, uname, pword):
@@ -37,10 +37,12 @@ class SignUpScreen(Screen):
             json.dump(users, file)
         self.manager.current = "sign_up_screen_success"
 
+
 class SignUpScreenSuccess(Screen):
     def go_to_login(self):
         self.manager.transition.direction = "right" #przech. str. w kier. prawym
         self.manager.current = "login_screen"
+
 
 class LoginScreenSuccess(Screen):
     def log_out(self):
