@@ -30,7 +30,8 @@
             padding: 10, 10
             spacing: 10, 0
             Button:
-                text: "Forgot Password?"
+                text: "Forget Password?"
+                on_press: root.forget_password()
                 background_color: 1, 1, 1, 0
                 color: 0.1, 0.7, 1, 1
                 opacity: 1 if self.state =='normal' else 0.5
@@ -57,6 +58,24 @@
         Button:
             text: "SignUp"
             on_press: root.add_user(root.ids.username.text, root.ids.password.text)
+
+<ForgetPasswordScreen>:
+    GridLayout:
+        cols: 1
+        padding: 20, 20
+        spacing: 20, 20
+        Label:
+            text: "Forget password?"
+        TextInput:
+            id: username
+            hint_text: "Username"
+        TextInput:
+            id: password
+            hint_text: "new password"
+        TextInput:
+            hint_text: "repeat a new password"
+        Button:
+            text: "Reset password"
 
 <SignUpScreenSuccess>:
     GridLayout:
@@ -85,11 +104,16 @@
             id: quote
             text: " "
         
+
+
+
 <RootWidget>
     LoginScreen:
         name: "login_screen"
     SignUpScreen:
         name: "sign_up_screen"
+    ForgetPasswordScreen:
+        name: "forget_password"
     SignUpScreenSuccess:
         name: "sign_up_screen_success"
     LoginScreenSuccess:

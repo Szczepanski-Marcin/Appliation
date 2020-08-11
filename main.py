@@ -21,6 +21,15 @@ class LoginScreen(Screen):
         else:
             self.ids.login_wrong.text = "Wrong username or password"
 
+    def forget_password(self):
+        self.manager.current = "forget_password"
+
+
+class ForgetPasswordScreen(Screen):
+    def forget_password(self):
+        self.manager.current = "forget_password"
+
+
 class RootWidget(ScreenManager):
     pass
 
