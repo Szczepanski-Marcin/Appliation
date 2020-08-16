@@ -66,8 +66,7 @@ class LoginScreenSuccess(Screen):
         feel = feel.lower()
         available_feeling = glob.glob("quotes/*txt")
 
-        available_feeling = [Path(filename).stem for filename in 
-                                    available_feeling]
+        available_feeling = [Path(filename).stem for filename in available_feeling]
 
         if feel in available_feeling:
             with open(f"quotes/{feel}.txt") as file:
