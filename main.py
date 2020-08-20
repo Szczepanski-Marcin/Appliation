@@ -50,10 +50,12 @@ class SignUpScreen(Screen):
             json.dump(users, file)
         self.manager.current = "sign_up_screen_success"
 
+
 class SignUpScreenSuccess(Screen):
     def go_to_login(self):
         self.manager.transition.direction = "right" #przech. str. w kier. prawym
         self.manager.current = "login_screen"
+
 
 class LoginScreenSuccess(Screen):
     def log_out(self):
